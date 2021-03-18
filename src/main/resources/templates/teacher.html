@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title class="table">Teacher</title>
+    <link href="../static/CSS/tables.css" th:href="@{/CSS/tables.css}" rel="stylesheet"/>
+</head>
+<body>
+<h2 class="title">TEACHER</h2>
+
+<table>
+    <tr>
+        <th>RID</th>
+        <th>TID</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>telephone</th>
+        <th>email</th>
+    </tr>
+    <tr th:each="teacher : ${tableteacher}">
+        <td th:text="${teacher.RID}"></td>
+        <td th:text="${teacher.TID}"></td>
+        <td th:text="${teacher.first_name}"></td>
+        <td th:text="${teacher.last_name}"></td>
+        <td th:text="${teacher.telephone}"></td>
+        <td th:text="${teacher.email}"></td>
+
+        <td><a th:href="@{'/viewTeacher/'+${teacher.TID}}"></a></td>
+
+    </tr>
+</table>
+
+
+
+</body>
+</html>
