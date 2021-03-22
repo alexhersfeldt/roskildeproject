@@ -16,7 +16,7 @@ public class TeacherRepository implements ITeacherRepo{
 
     @Override
     public List<Teacher> fetchAll() {
-        String sql = "SELECT * FROM teacher";
+        String sql = "SELECT *  FROM teacher";
         RowMapper<Teacher> rowMapper = new BeanPropertyRowMapper<>(Teacher.class);
         return template.query(sql, rowMapper);
     }
