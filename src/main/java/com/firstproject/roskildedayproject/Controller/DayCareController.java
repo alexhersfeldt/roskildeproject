@@ -3,8 +3,11 @@ package com.firstproject.roskildedayproject.Controller;
 
 import com.firstproject.roskildedayproject.Model.Kid;
 import com.firstproject.roskildedayproject.Model.Teacher;
+import com.firstproject.roskildedayproject.Model.WorkSchedule;
 import com.firstproject.roskildedayproject.Service.IKidServ;
 import com.firstproject.roskildedayproject.Service.ITeacherServ;
+import com.firstproject.roskildedayproject.Service.IWorkScheduleServ;
+import com.firstproject.roskildedayproject.Service.WorkScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,8 @@ public class DayCareController {
     ITeacherServ teacherService;
     @Autowired
     IKidServ kidService;
+    @Autowired
+    IWorkScheduleServ workScheduleService;
 
 
     @GetMapping("/index") //done
@@ -88,6 +93,19 @@ public class DayCareController {
     public String ViewkidsAll(@PathVariable("TID") int KKID, Model model) {
         model.addAttribute("tablekidsall", kidService.findKidByKid(KKID));
         return "viewkidsall";
+    }
+
+    @GetMapping("/schedule") //done
+    public String Home5(Model model) {
+        List<WorkSchedule> scheduleList= workScheduleService.fetchALL();
+        model.addAttribute("tableschedule", scheduleList);
+        return "schedule";
+    }
+
+    @GetMapping("/viewschedule/{WSID}") //done
+    public String ViewSchedule(@PathVariable("WSID") int WSID, Model model) {
+        model.addAttribute("tableschedule", workScheduleService.findWorkScheduleByWsid(WSID));
+        return "viewschedule";
     }
 
 

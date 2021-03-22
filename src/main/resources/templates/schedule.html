@@ -2,15 +2,43 @@
 <html  xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coral Room</title>
+    <title>Schedule</title>
     <link href="../static/CSS/classroom.css" th:href="@{/CSS/classroom.css}" rel="stylesheet">
 </head>
 <body>
 <header>
-    <h1 class = "cover">SCHEDULE</h1>
+    <h1 class = "cover">PUPILS</h1>
     <div>
         <a href="/admin"><h2 class ="return">RETURN</h2></a>
     </div>
+
+    <table>
+        <tr>
+            <th>RID</th>
+            <th>TID</th>
+            <th>WSID</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+
+        </tr>
+        <tr th:each="work_schedule : ${tableschedule}">
+            <td th:text="${work_schedule.RID}"></td>
+            <td th:text="${work_schedule.TID}"></td>
+            <td th:text="${work_schedule.WSID}"></td>
+            <td th:text="${work_schedule.monday}"></td>
+            <td th:text="${work_schedule.tuesday}"></td>
+            <td th:text="${work_schedule.wednesday}"></td>
+            <td th:text="${work_schedule.thursday}"></td>
+            <td th:text="${work_schedule.friday}"></td>
+
+
+            <td><a th:href="@{'/viewschedule/'+${work_schedule.WSID}}"></a></td>
+
+        </tr>
+    </table>
 </header>
 
 </body>
