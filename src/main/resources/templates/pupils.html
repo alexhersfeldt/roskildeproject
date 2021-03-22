@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coral Room</title>
+    <link href="../static/CSS/classroom.css" th:href="@{/CSS/classroom.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1 class = "cover">PUPILS</h1>
+    <div>
+        <a href="/admin"><h2 class ="return">RETURN</h2></a>
+    </div>
+
+    <table>
+        <tr>
+            <th>KKID</th>
+            <th>RID</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>DOB</th>
+            <th>start_date</th>
+            <th>wait</th>
+        </tr>
+        <tr th:each="kid : ${tablekidsall}">
+            <td th:text="${kid.KKID}"></td>
+            <td th:text="${kid.RID}"></td>
+            <td th:text="${kid.first_name}"></td>
+            <td th:text="${kid.last_name}"></td>
+            <td th:text="${kid.DOB}"></td>
+            <td th:text="${kid.start_date}"></td>
+            <td th:text="${kid.wait}"></td>
+
+
+            <td><a th:href="@{'/viewkidsall/'+${kid.KKID}}"></a></td>
+
+        </tr>
+    </table>
+</header>
+
+</body>
+</html>

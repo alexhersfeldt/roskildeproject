@@ -9,5 +9,9 @@ public interface ITeacherServ {
     List<Teacher> fetchAll();
 
     Teacher findTeacherByTid(int TID);
+
+    Teacher addTeacher(Teacher p);
+
+
 }
 

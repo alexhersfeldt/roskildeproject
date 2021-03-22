@@ -14,8 +14,12 @@ public class KidService implements  IKidServ{
     IKidRepo kidRepo;
 
     @Override
+    public List<Kid> fetchAllKids(){return kidRepo.fetchAllKids();}
+
+    @Override
     public List<Kid> fetchALL() { return kidRepo.fetchALL(); }
 
     @Override
     public Kid findKidByKid(int KKID) { return kidRepo.findKidByKid(KKID); }
 }
+

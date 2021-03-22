@@ -2,23 +2,15 @@
 <html  xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Table teacher</title>
-
+    <title>HOME PAGE</title>
+    <link href="../static/CSS/style.css" th:href="@{/CSS/style.css}" rel="stylesheet">
 </head>
 <body>
-
-<header>
-    <h1 class="title">Day care home page</h1>
-    <nav class="global">
-        <ul>
-            <li><a href="http://localhost:5555/teacher">Teacher</a></li>
-
-        </ul>
-    </nav>
-</header>
-<main>
-    <div class="text">welcome to roskilde day care
-    </div>
-</main>
+<main><div class="cover" id="left">
+    <a href="/teacher"><h1>TEACHER</h1></a>
+</div>
+    <div class="cover" id="right">
+        <a href="/admin"><h1>ADMIN</h1></a>
+    </div></main>
 </body>
 </html>

@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding:0;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+h1{
+    text-align: center;
+    font-size: 5vw;
+    margin-top: 6.7rem;
+    margin-bottom: 6.7rem;
+    font-weight: lighter;
+    color:#707070;
+    opacity: 65%;
+
+}
+a{
+    text-decoration-line: none;
+}
+.cover{
+    margin:0;
+    padding: 0;
+    height: 49.8%;
+    width: 49.8%;
+    opacity: 65%;
+    transition: all 0.8s;
+    background-color: #bddbe0;
+}
+.cover:hover {
+    opacity: 100%;
+    transition: all 0.8s;
+}
+.cover:hover h1{
+    opacity: 100%;
+    transition: all 0.8s;
+}
+.return{
+    display: flex;
+    opacity: 65%;
+    transition: all 0.8s;
+    color:#707070;
+    font-size: 2vw;
+    position: absolute;
+    top: 0;
+    left: 25px;
+}
+.return:hover{
+    opacity: 100%;
+    transition: all 0.8s;
+}
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title class="table">Teacher</title>
+    <link href="../static/CSS/classroom.css" th:href="@{/CSS/classroom.css}" rel="stylesheet">
+</head>
+<body class="mt32">
+<div class="container">
+    <h1 class = "cover">TEACHERS</h1>
+    <div>
+        <a href="/admin"><h2 class ="return">RETURN</h2></a>
+    </div>
+<input type="search" placeholder="Search..." class="form-control search-input" data-table="customers-list"/>
+
+
+<table class="table table-striped mt32 customers-list">
+    <tr>
+        <th>RID</th>
+        <th>TID</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>telephone</th>
+        <th>email</th>
+    </tr>
+    <tr th:each="teacher : ${tableteacher}">
+        <td th:text="${teacher.RID}"></td>
+        <td th:text="${teacher.TID}"></td>
+        <td th:text="${teacher.first_name}"></td>
+        <td th:text="${teacher.last_name}"></td>
+        <td th:text="${teacher.telephone}"></td>
+        <td th:text="${teacher.email}"></td>
+
+        <td><a th:href="@{'/viewTeacher/'+${teacher.TID}}"></a></td>
+
+    </tr>
+</table>
+
+
+</div>
+
+
+<h1>Add a Teacher</h1>
+<form method="post" action="/create">
+    <table>
+        <tr>
+            <th>RID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="RID"></td>
+            <td><input type="text" name="first_name"></td>
+            <td><input type="text" name="last_name"></td>
+            <td><input type="text" name="telephone"></td>
+            <td><input type="text" name="email"></td>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+    </table>
+</form>
+
+<p id="demo"></p>
+
+
+<script type="text/javascript">
+    (function(document) {
+        'use strict';
+
+        var TableFilter = (function(myArray) {
+            var search_input;
+
+            function _onInputSearch(e) {
+                search_input = e.target;
+                var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                myArray.forEach.call(tables, function(table) {
+                    myArray.forEach.call(table.tBodies, function(tbody) {
+                        myArray.forEach.call(tbody.rows, function(row) {
+                            var text_content = row.textContent.toLowerCase();
+                            var search_val = search_input.value.toLowerCase();
+                            row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                        });
+                    });
+                });
+            }
+
+            return {
+                init: function() {
+                    var inputs = document.getElementsByClassName('search-input');
+                    myArray.forEach.call(inputs, function(input) {
+                        input.oninput = _onInputSearch;
+                    });
+                }
+            };
+        })(Array.prototype);
+
+        document.addEventListener('readystatechange', function() {
+            if (document.readyState === 'complete') {
+                TableFilter.init();
+            }
+        });
+
+    })(document);
+
+
+    $( document ).ready(function() {
+        $("[name='first_name']").focus();
+
+        console.log( "document loaded" );
+        $( "th" ).click(function() {
+            $( "td" ).toggle("slow");
+        });
+
+        $('form').on('submit', function(e){
+            if($('input[name$="RID').val().length>0 && $('input[name$="first_name"]').val().length>0 && $('input[name$="last_name"]').val().length>0
+                && $('input[name$="telephone"]').val().length>0
+                && $('input[name$="email"]').val().length>0)
+            {
+                if(!confirm("Are you sure you will create this person?" ))
+                {
+                    e.preventDefault();
+                }
+            }
+            else
+            {
+                alert("Firstname or lastname are missing!");
+                e.preventDefault();
+            }
+        });
+
+        $('a').click(function(e) {
+            if(confirm("Are you sure you will do that?" ))
+            {}
+            else
+            {
+                e.preventDefault();
+            }
+        });
+    });
+
+
+
+
+</script>
+
+</body>
+</html>

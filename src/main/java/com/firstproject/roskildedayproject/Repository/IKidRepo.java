@@ -9,4 +9,6 @@ public interface IKidRepo {
 
     Kid findKidByKid(int KKID);
 
+    List<Kid> fetchAllKids();
+
 }

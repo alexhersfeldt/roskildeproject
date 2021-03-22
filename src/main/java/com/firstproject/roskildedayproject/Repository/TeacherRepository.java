@@ -10,9 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class TeacherRepository implements ITeacherRepo{
+public class TeacherRepository implements ITeacherRepo {
+
     @Autowired
     JdbcTemplate template;
+
 
     @Override
     public List<Teacher> fetchAll() {
@@ -28,4 +30,13 @@ public class TeacherRepository implements ITeacherRepo{
         Teacher teach= template.queryForObject(sql, rowMapper, TID);
         return teach;
     }
+
+
+    @Override
+    public Teacher addTeacher(Teacher t) {
+        String sql="INSERT INTO teacher(RID,first_name,last_name, telephone, email) VALUES(?,?)";
+        template.update(sql,t.getRID(),t.getFirst_name(),t.getLast_name(),t.getTelephone() ,t.getEmail());
+        return null;
+    }
+
 }
