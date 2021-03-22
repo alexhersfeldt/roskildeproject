@@ -7,7 +7,9 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
+
     </parent>
+
     <groupId>com.firstproject</groupId>
     <artifactId>roskildedayproject</artifactId>
     <version>Roskilde beta</version>

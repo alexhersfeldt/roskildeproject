@@ -44,10 +44,24 @@ a{
     color:#707070;
     font-size: 2vw;
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 25px;
 }
 .return:hover{
+    opacity: 100%;
+    transition: all 0.8s;
+}
+.logout{
+    display: flex;
+    opacity: 65%;
+    transition: all 0.8s;
+    color:#707070;
+    font-size: 2vw;
+    position: absolute;
+    top: 0;
+    left: 25px;
+}
+.logout:hover{
     opacity: 100%;
     transition: all 0.8s;
 }
