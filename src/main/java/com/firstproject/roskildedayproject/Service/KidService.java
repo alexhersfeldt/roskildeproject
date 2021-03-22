@@ -17,6 +17,10 @@ public class KidService implements  IKidServ{
     public List<Kid> fetchAllKids(){return kidRepo.fetchAllKids();}
 
     @Override
+    public List<Kid> fetchAllWait(){return kidRepo.fetchAllWait();}
+
+
+    @Override
     public List<Kid> fetchALL() { return kidRepo.fetchALL(); }
 
     @Override

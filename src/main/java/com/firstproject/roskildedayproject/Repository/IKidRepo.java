@@ -7,6 +7,8 @@ public interface IKidRepo {
 
     List<Kid> fetchALL();
 
+    List<Kid> fetchAllWait();
+
     Kid findKidByKid(int KKID);
 
     List<Kid> fetchAllKids();

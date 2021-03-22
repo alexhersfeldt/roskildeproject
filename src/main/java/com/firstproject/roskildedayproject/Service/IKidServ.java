@@ -8,6 +8,8 @@ import java.util.List;
 public interface IKidServ {
     List<Kid> fetchALL();
 
+    List<Kid> fetchAllWait();
+
     List<Kid> fetchAllKids();
 
     Kid findKidByKid(int KKID);

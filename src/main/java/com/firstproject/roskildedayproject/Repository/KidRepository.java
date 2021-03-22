@@ -22,6 +22,13 @@ public class KidRepository implements IKidRepo{
     }
 
     @Override
+    public List<Kid> fetchAllWait() {
+        String sql = "SELECT KKID, RID, first_name, last_name, DOB, start_date, wait FROM kid where RID = 5";
+        RowMapper<Kid> rowMapper = new BeanPropertyRowMapper<>(Kid.class);
+        return template.query(sql, rowMapper);
+    }
+
+    @Override
     public List<Kid> fetchAllKids(){
         String sql = "SELECT * FROM kid";
         RowMapper<Kid> rowMapper = new BeanPropertyRowMapper<>(Kid.class);

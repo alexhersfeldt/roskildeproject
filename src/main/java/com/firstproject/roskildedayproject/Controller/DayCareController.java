@@ -50,8 +50,20 @@ public class DayCareController {
     }
     @GetMapping("/viewkid/{KKID}")
     public String Viewkid(@PathVariable("KKID") int KKID, Model model) {
-        model.addAttribute("tablekid", kidService.findKidByKid(KKID));
+        model.addAttribute("tablewait", kidService.findKidByKid(KKID));
         return "viewkid";
+    }
+
+    @GetMapping("/wait")
+    public String Home6(Model model) {
+        List<Kid> myKidList = kidService.fetchAllWait();
+        model.addAttribute("tablewait", myKidList);
+        return "wait";
+    }
+    @GetMapping("/viewwait/{KKID}")
+    public String ViewWait(@PathVariable("KKID") int KKID, Model model) {
+        model.addAttribute("tablewait", kidService.findKidByKid(KKID));
+        return "viewwait";
     }
 
 
@@ -90,7 +102,7 @@ public class DayCareController {
 
 
     @GetMapping("/viewkidsall/{KKID}") //done
-    public String ViewkidsAll(@PathVariable("TID") int KKID, Model model) {
+    public String ViewkidsAll(@PathVariable("KKID") int KKID, Model model) {
         model.addAttribute("tablekidsall", kidService.findKidByKid(KKID));
         return "viewkidsall";
     }

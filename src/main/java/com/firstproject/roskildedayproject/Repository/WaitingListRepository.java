@@ -15,6 +15,8 @@ public class WaitingListRepository implements IWaitingListRepo {
     @Autowired
     JdbcTemplate template;
 
+
+
     @Override
     public List<WaitingList> fetchALL() {
         String sql = "SELECT * FROM waiting_list";
